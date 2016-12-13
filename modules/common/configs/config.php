@@ -8,7 +8,7 @@ return [
     'components' => [
         'user' => [
             'class'         => 'yii\web\User',
-            'identityClass' => 'app\modules\common\User',
+            'identityClass' => 'app\modules\common\model\User',
         ],
         'urlManager' => [
             'enablePrettyUrl'     => true,
