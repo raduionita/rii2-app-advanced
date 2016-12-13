@@ -10,10 +10,17 @@ composer install
 
 ### Console
 ```
-./yiic test/test
+./yiic test/test # The useless command!
 ```
 
 ### URLs
 ```
-http://hostname/      # -> frontend
-http://hostname/admin # -> backend
+http://hostname/                # -> frontend (web)
+http://hostname/admin           # -> backend (web)
+http://hostname/api/v1/products # -> products (rest)
+```
+
+### TODO
+* Sub-resources: ` /orders/1334/products/213 `
+* Improve configs
+* `modules/` to `apps/` but keep only one `web/` folder

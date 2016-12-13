@@ -5,12 +5,12 @@ return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/c
     'modules' => [
         'backend' => [
             'class' => 'app\modules\backend\Module',
-            // ... other configurations for the module ...
         ],
     ],
     'components' => [
         'urlManager' => [
             'rules' => require(__DIR__ . '/routes.php'),
         ],
-    ]
+    ],
+    'params' => require(__DIR__ . '/params.php'),
 ]);
