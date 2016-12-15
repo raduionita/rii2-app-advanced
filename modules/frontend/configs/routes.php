@@ -1,4 +1,6 @@
 <?php
 return [
-    '' => 'frontend/site/index',
+    '/'      => 'frontend/site/index',
+    'login'  => 'frontend/auth/login',
+    'logout' => 'frontend/auth/logout',
 ];

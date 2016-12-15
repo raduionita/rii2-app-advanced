@@ -6,5 +6,6 @@ require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 exit((new yii\console\Application(require(__DIR__ . '/modules/console/configs/config.php')))->run());
 
+# @todo
 # yiic command -e DEV -d 
 # yiic command --env=dev --debug

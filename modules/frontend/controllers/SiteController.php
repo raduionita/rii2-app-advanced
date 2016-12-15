@@ -1,11 +1,15 @@
 <?php
 
-namespace app\modules\frontend\controllers;
+namespace frontend\controllers;
 
-class SiteController extends \yii\web\Controller
+use yii\web\Controller;
+
+class SiteController extends Controller
 {
+    public $layout = '@frontend/views/layout';
+
     public function actionIndex()
     {
-        echo 'frontend:SiteController::actionIndex()';
+        return $this->render('index');
     }
 }

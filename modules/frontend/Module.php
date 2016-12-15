@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\frontend;
+namespace frontend;
 
 class Module extends \yii\base\Module
 {

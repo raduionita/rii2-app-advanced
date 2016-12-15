@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\console\commands;
+namespace console\commands;
 
 // use raducorp\yiibase\Command\Command;
 

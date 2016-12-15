@@ -1,34 +1,88 @@
 <?php
 
-namespace app\modules\common\models;
+namespace common\models;
 
+use yii\base\NotSupportedException;
+use yii\base\Object;
 use yii\web\IdentityInterface;
 
-class User implements IdentityInterface
+class User extends Object implements IdentityInterface
 {
+    public const STATUS_DELETED = 0b00;
+    public const STATUS_ACTIVE  = 0b01;
 
-    public static function findIdentity($id)
+    /** @var string */
+    protected $authKey;
+    /** @var  int */
+    protected $id;
+    /** @var string */
+    protected $username;
+    /** @var string hashed */
+    protected $password;
+    /** @var @string */
+    protected $email;
+    /** @var int */
+    protected $status;
+
+    public function getAuthKey() : string
     {
-        // TODO: Implement findIdentity() method.
+        return $this->authKey;
     }
 
-    public static function findIdentityByAccessToken($token, $type = null)
+    public function getId() : int
     {
-        // TODO: Implement findIdentityByAccessToken() method.
+        return $this->id;
     }
 
-    public function getId()
+    public function setId(int $id) : void
     {
-        // TODO: Implement getId() method.
+        $this->id = $id;
     }
 
-    public function getAuthKey()
+    public function getUsername() : string
     {
-        // TODO: Implement getAuthKey() method.
+        return $this->username;
     }
 
-    public function validateAuthKey($authKey)
+    public function setUsername(string $username) : void
     {
-        // TODO: Implement validateAuthKey() method.
+        $this->username = $username;
+    }
+
+    public function getPassword() : string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password) : void
+    {
+        $this->password = \Yii::$app->security->generatePasswordHash($password);
+    }
+
+    public function validateAuthKey($authKey) : bool
+    {
+        return $this->getAuthKey() === $authKey;
+    }
+
+    public function validatePassword(string $password) : bool
+    {
+        return \Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public static function findIdentity($id) : ?User
+    {
+        // @todo Replace with db user, or something...
+        return new User(['id' => 0, 'username' => 'test', 'password' => 'test']);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null) : ?User
+    {
+        throw new NotSupportedException('"findIdentityByAccessToken()" is not implemented.');
+    }
+
+    public static function findByUsername(string $username) : ?User
+    {
+        // @todo Replace with db user, or something...
+        return new User(['id' => 0, 'username' => 'test', 'password' => 'test']);
     }
 }
