@@ -3,13 +3,21 @@
 namespace common\db;
 
 use yii\db\ActiveRecord;
+use yii\db\Query;
 
+/**
+ * Class SyncedRecord
+ * @package common\db
+ */
 abstract class SyncedRecord extends ActiveRecord
 {
+    /** @var null|bool */
     private $_synched = null;
+    /** @var bool */
+    private $_lazy    = true;
 
     /**
-     * SyncedRecord constructor.
+     * SyncedRecord constructor. Expanded configuration.
      * @example new Person()
      * @example new Person(1, 'NoName')
      * @example new Person([1, 'NoName'])
@@ -31,15 +39,12 @@ abstract class SyncedRecord extends ActiveRecord
     }
 
     /**
-     * @param array $values
+     * @param array $pks
      * @param array $attributes
      * @return object
      */
-    public static function findByPk(array $values, array $attributes = [])
+    public static function findByPk(array $pks, array $attributes = [])
     {
-        // read pks from schema, merge keys:$pks values:$values
-        // @todo
-        $pks = [];
         return self::find()->where($pks)->select(empty($attributes) ? '*' : $attributes)->one();
     }
 
@@ -70,7 +75,7 @@ abstract class SyncedRecord extends ActiveRecord
         // @todo search in cache
 
         // else .. seach in db
-        $this->_synched = !!self::find()->where($pks)->count('1');
+        $this->_synched = !!self::find()->where($pks)->exists();
         // @todo save in cache
 
         // mask as update & pks are not dirty any more
@@ -92,21 +97,39 @@ abstract class SyncedRecord extends ActiveRecord
      */
     public function __get($name)
     {
-        // lazy only for synched records
-        if ($this->_synched !== true && $this->_lazy === true) {
-            // ...
-        }
-        // if still lazy
-          // perform fetch, 1st try cache
-          // set not lazy any more
-        // esle // no lazy any more - already featched
-          // get from object
-
-
-
-
-        // if pk was set...enter proxy(lazy) mode
-        // self::getTableSchema()->primaryKey() | uses self::getDb()
+        $this->hydrate();
         return parent::__get($name);
+    }
+
+    /**
+     * Convert into an array.
+     * If record has been synched, un-lazy it first to get all fields from the db.
+     * @override ArrayableTrait::toArray();
+     * @param array $fields
+     * @param array $expand
+     * @param bool $recursive
+     * @return array
+     */
+    public function toArray(array $fields = [], array $expand = [], $recursive = true)
+    {
+        $this->hydrate();
+        return parent::toArray($fields, $expand, $recursive);
+    }
+
+    /**
+     * De-lazy the record. Populate it with data from the db.
+     * Only works if the record has been synched.
+     */
+    private function hydrate()
+    {
+        // lazy only for synched records
+        if ($this->_synched === true && $this->_lazy === true) {
+            if ($data = (new Query())->from(static::tableName())->where($this->getPrimaryKey(true))->one()) {
+                $this->setAttributes(array_merge($data, $this->getDirtyAttributes()), false);
+                $this->setOldAttributes($data);
+            }
+            // only once, stop your lazyness
+            $this->_lazy = false;
+        }
     }
 }
