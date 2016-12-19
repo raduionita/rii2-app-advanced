@@ -1,6 +1,6 @@
 <?php
 Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
-return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/config.php'), [
+return [
     'modules' => [
         'backend' => [
             'class' => 'backend\Module',
@@ -12,4 +12,4 @@ return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/c
         ],
     ],
     'params' => require(__DIR__ . '/params.php'),
-]);
+];

@@ -1,11 +1,15 @@
 <?php
 
-namespace app\modules\backend\controllers;
+namespace backend\controllers;
 
-class SiteController extends \yii\web\Controller
+use yii\web\Controller;
+
+class SiteController extends Controller
 {
     public function actionIndex()
     {
+        echo '<pre>';
+        print_r(\Yii::$app->request);
         echo 'backend:SiteController::actionIndex()';
     }
 }

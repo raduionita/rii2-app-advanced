@@ -14,6 +14,9 @@ class SiteController extends Controller
         $product = new Product(1);
         $product->sync();
 
+        echo '<pre>', print_r($product->toArray(), 1);
+        echo '<pre>', print_r(\Yii::getAlias('@app'), 1);
+
         return $this->render('index');
     }
 }

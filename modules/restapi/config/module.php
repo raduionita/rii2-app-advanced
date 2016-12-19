@@ -1,10 +1,9 @@
 <?php
 Yii::setAlias('@restapi', dirname(dirname(__DIR__)) . '/restapi');
-
-return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/config.php'), [
+return [
     'modules' => [
         'restapi' => [
-            'class' => 'app\modules\restapi\Module',
+            'class' => 'restapi\Module',
         ],
     ],
     'components' => [
@@ -30,4 +29,4 @@ return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/c
 //        ],
     ],
     'params' => require(__DIR__ . '/params.php'),
-]);
+];

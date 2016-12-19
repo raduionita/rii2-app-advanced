@@ -45,6 +45,7 @@ abstract class SyncedRecord extends ActiveRecord
      */
     public static function findByPk(array $pks, array $attributes = [])
     {
+        // @todo make this make more sence - easier to use
         return self::find()->where($pks)->select(empty($attributes) ? '*' : $attributes)->one();
     }
 

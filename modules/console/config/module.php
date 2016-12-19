@@ -1,6 +1,6 @@
 <?php
 Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
-return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/config.php'), [
+return [
     'controllerNamespace' => 'console\commands',
 //    'modules' => [
 //        'console' => [
@@ -8,7 +8,9 @@ return yii\helpers\ArrayHelper::merge(require(__DIR__ . '/../../common/configs/c
 //            // ... other configurations for the module ...
 //        ],
 //    ],
-//    'components' => [
-//        // ...
-//    ]
-]);
+    'components' => [
+        'request' => [
+            'class' => '\yii\console\Request',
+        ],
+    ],
+];
