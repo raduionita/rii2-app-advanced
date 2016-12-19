@@ -42,7 +42,6 @@ require(dirname(__DIR__) . '/modules/restapi/config/module.php'),
             'enableSession'   => true,
         ],
         'urlManager' => [
-            'class'               => '\yii\web\UrlManager',
             'enablePrettyUrl'     => true,
             'showScriptName'      => false,
             'enableStrictParsing' => true,
