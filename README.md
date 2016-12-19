@@ -22,11 +22,10 @@ http://hostname/api/v1/products # -> products (rest)
 ```
 
 ### TODO
-* SUpport sub-resources: `/orders/1334/products/213`
+* Support sub-resources: `/orders/1334/products/213`
 * REST API module version sub-folders `restapi/v1/` `restapi/v2.2/`
 * Improve configs
-* `modules/` to `apps/` but keep only one `web/` folder!?
-* A better form widget ``common\component\FormWidget``
-* `./yiic` doesn't like `requrest:cookieValidationKey`
+* A better form widget `common\component\FormWidget`
 * Login using a 2 step process(username step & password step) see `AuthController.php`
 * Cache warmer!?
+* Move `common/db` to an external vendor bundle `raducorp/yii-common`
