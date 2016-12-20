@@ -17,9 +17,6 @@ return [
                 ],
             ],
         ],
-        'urlManager' => [
-            'rules' => require(__DIR__ . '/routes.php'),
-        ],
 //        'log' => [
 //            'targets' => [
 //                [

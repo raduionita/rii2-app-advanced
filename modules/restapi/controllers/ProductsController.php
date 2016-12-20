@@ -1,8 +1,10 @@
 <?php
 
-namespace app\modules\restapi\controllers;
+namespace restapi\controllers;
 
-class ProductsController extends \yii\rest\Controller
+use \yii\rest\Controller;
+
+class ProductsController extends Controller
 {
     public function actionUpdate($id)
     {

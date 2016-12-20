@@ -1,6 +1,6 @@
 <?php
 
-namespace restapi;
+namespace console;
 
 class Module extends \yii\base\Module
 {

@@ -1,18 +1,19 @@
 {
-    "name": "raducorp/yii2-app-standard",
-    "description": "Yii 2 Standard Project Template",
-    "keywords": ["yii2", "framework", "standard", "project template"],
+    "name": "raducorp/rii2-app-advanced",
+    "description": "Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template"],
     "type": "project",
     "license": "MIT",
     "support": {
-        "source": "https://github.com/raducorp/yii2-app-standard"
+        "source": "https://github.com/raducorp/rii2-app-advanced"
     },
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "raducorp/rii2" : "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

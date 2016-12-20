@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use common\db\SyncedRecord;
+use rii\db\SyncedRecord;
 
 /**
  * Class Product

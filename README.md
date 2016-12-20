@@ -1,4 +1,4 @@
-Yii2 App Standard Template
+Yii2 App Advanced Template
 ==========================
 
 ### Install
@@ -28,6 +28,4 @@ http://hostname/api/v1/products # -> products (rest)
 * A better form widget `common\component\FormWidget`
 * Login using a 2 step process(username step & password step) see `AuthController.php`
 * Cache warmer!?
-* Move `common/db` to an external vendor bundle `raducorp/yii-common`
-* Need a better Application class: that doesn't require 2 main config files.
 * Need a better Module class: that autoloads its config file.

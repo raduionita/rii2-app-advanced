@@ -2,25 +2,20 @@
 
 namespace console\commands;
 
-// use raducorp\yiibase\Command\Command;
+use yii\console\Controller;
 
-class TestController extends \yii\console\Controller
+/**
+ * Test, the useless command controller
+ */
+class TestController extends Controller
 {
-  protected function configure()
-  {
-    // set name
-    // set description
-    // set help
-    // add argument
-  }
+    public $defaultAction = 'test';
 
-  public function actionTest()
-  {
-      echo 'console:TestCommand::actionTest()';
-  }
-
-//  protected function run()
-//  {
-//    // do something
-//  }
+    /**
+     * Test, the useless command controller action
+     */
+    public function actionTest()
+    {
+        echo 'console:TestController::actionTest()';
+    }
 }

@@ -3,9 +3,10 @@ Yii::setAlias('@data',   dirname(__DIR__) . '/data');
 Yii::setAlias('@root',   dirname(__DIR__));
 Yii::setAlias('@common', dirname(__DIR__) . '/modules/common');
 return \yii\helpers\ArrayHelper::merge(
-require(dirname(__DIR__) . '/modules/backend/config/module.php'),
-require(dirname(__DIR__) . '/modules/frontend/config/module.php'),
-require(dirname(__DIR__) . '/modules/restapi/config/module.php'),
+require(dirname(__DIR__) . '/modules/backend/config/config.php'),
+require(dirname(__DIR__) . '/modules/frontend/config/config.php'),
+require(dirname(__DIR__) . '/modules/restapi/config/config.php'),
+require(dirname(__DIR__) . '/modules/console/config/config.php'),
 [
     'id'          => 'app-standard',
     'vendorPath'  => '@root/vendor',
@@ -29,14 +30,12 @@ require(dirname(__DIR__) . '/modules/restapi/config/module.php'),
             ],
         ],
         'request' => [
-            'class'               => '\yii\web\Request',
             'cookieValidationKey' => 'THIS NEEDS TO BE SET!',
         ],
         'session' => [
             'class' => '\yii\web\Session',
         ],
         'user' => [
-            'class'           => '\yii\web\User',
             'identityClass'   => 'common\models\User',
             'enableAutoLogin' => false, // true if authKey is stored
             'enableSession'   => true,
