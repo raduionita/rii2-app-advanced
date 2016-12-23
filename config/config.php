@@ -8,7 +8,7 @@ require(dirname(__DIR__) . '/modules/frontend/config/config.php'),
 require(dirname(__DIR__) . '/modules/restapi/config/config.php'),
 require(dirname(__DIR__) . '/modules/console/config/config.php'),
 [
-    'id'          => 'app-standard',
+    'id'          => 'rii2-app-advanced',
     'vendorPath'  => '@root/vendor',
     'basePath'    => '@root',
     'runtimePath' => '@root/runtime',
@@ -24,8 +24,8 @@ require(dirname(__DIR__) . '/modules/console/config/config.php'),
             'enableSchemaCache'   => true,
             'schemaCacheDuration' => 3600,
             'schemaCache'         => [
-                'class'     => '\yii\caching\ApcCache', // this little mofo beats file, memcache & mysql
-                'useApcu'   => true,                    // but it's limitted :)
+                'class'     => '\yii\caching\ApcCache',
+                'useApcu'   => true,
                 'keyPrefix' => 'db',
             ],
         ],
@@ -49,5 +49,12 @@ require(dirname(__DIR__) . '/modules/console/config/config.php'),
                 'action' => \yii\web\UrlNormalizer::ACTION_REDIRECT_TEMPORARY, // 302
             ],
         ],
+//        'log' => [
+//            'targets' => [
+//                [
+//                    'class' => 'yii\log\Web'
+//                ]
+//            ],
+//        ],
     ],
 ]);

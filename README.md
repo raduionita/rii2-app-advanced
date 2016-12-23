@@ -15,14 +15,15 @@ $ ./yiic test/test # The useless command!
 
 ### URLs
 ```
-http://hostname/                # -> frontend (web)
-http://hostname/login           # -> frontend (web)
-http://hostname/admin           # -> backend (web)
-http://hostname/api/v1/products # -> products (rest)
+http://hostname/                        # -> frontend (web)
+http://hostname/login                   # -> frontend (web)
+http://hostname/admin                   # -> backend (web)
+http://hostname/api/v1/users            # -> restapi/users/1 (rest)
+http://hostname/api/v1/users/1/products # -> restapi/products # (rest sub-resources)
 ```
 
 ### TODO
-* Support sub-resources: `/orders/1334/products/213`
+* Find a way to link sub-resources: get products belonging to user:1
 * REST API module version sub-folders `restapi/v1/` `restapi/v2.2/`
 * Improve configs
 * A better form widget `common\component\FormWidget`
