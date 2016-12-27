@@ -23,7 +23,7 @@ http://hostname/api/v1/users/1/products # -> restapi/products # (rest sub-resour
 ```
 
 ### TODO
-* Find a way to link sub-resources: get products belonging to user:1
+* WIP: Find a way to link sub-resources: get products belonging to user:1
 * REST API module version sub-folders `restapi/v1/` `restapi/v2.2/`
 * Improve configs
 * A better form widget `common\component\FormWidget`
