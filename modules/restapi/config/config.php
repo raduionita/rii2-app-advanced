@@ -18,16 +18,11 @@ return [
             ],
         ],
         'urlManager' => [
-            'rules' => require(__DIR__ . '/routes.php'),
-        ],
-        'resManager' => [
-            'class' => '\rii\rest\ResourceManager',
-            'controller' => '\rii\rest\Controller',
-            'resources' => [
-                'users'    => 'restapi\resources\users',
-                'orders'   => [],
-                'products' => [],
-            ]
+            'rules' =>     [[
+                'class'      => '\rii\rest\UrlRule',
+                'prefix'     => 'api/v1',
+                'controller' => require(__DIR__ . '/routes.php'),
+            ]],
         ],
     ],
     'params' => require(__DIR__ . '/params.php'),

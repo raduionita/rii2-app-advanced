@@ -2,7 +2,9 @@
 
 namespace restapi\resources;
 
-class Products extends \rii\rest\Resource
+use yii\db\ActiveRecord;
+
+class Products extends ActiveRecord
 {
 
 }

@@ -2,26 +2,9 @@
 return [
     # yii\web\Controller requires idenitityClass => User
     # host.com/api/v1/products
-//    [
-//        'class'      => '\rii\rest\UrlRule',
-//        'prefix'     => 'api/v1',
-//        'controller' => [ 'products' => 'restapi/products' ],
-//    ],
-//    [
-//        'class'      => '\rii\rest\UrlRule',
-//        'prefix'     => 'api/v1',
-//        'controller' => [ 'users' => 'restapi/users' ],
-//    ],
-//    [
-//        'class'      => '\rii\rest\UrlRule',
-//        'prefix'     => 'api/v1',
-//        'controller' => [ 'orders' => 'restapi/orders' ],
-//    ],
-    [
-        'class'      => '\rii\rest\UrlRule',
-        'prefix'     => 'api/v1',
-        'controller' => [ '<resource:\w+>' => 'restapi/orders' ],
-    ]
+    'products' => 'restapi/products',
+    'users'    => 'restapi/users',
+    'orders'   => 'restapi/orders'
 ];
 
 
